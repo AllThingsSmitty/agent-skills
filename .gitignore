@@ -1,0 +1,15 @@
+# Local skill installs (created when running install scripts from the repo root)
+.claude/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
