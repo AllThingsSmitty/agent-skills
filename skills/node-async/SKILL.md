@@ -13,14 +13,14 @@ The event loop handles every request. If you block it — with a CPU-intensive l
 
 ```ts
 // Bad: blocks the event loop for every caller
-app.get('/report', (req, res) => {
-  const result = fs.readFileSync('large-file.csv'); // synchronous — blocks
+app.get("/report", (req, res) => {
+  const result = fs.readFileSync("large-file.csv"); // synchronous — blocks
   res.send(process(result));
 });
 
 // Good: yields to the event loop
-app.get('/report', async (req, res) => {
-  const result = await fs.promises.readFile('large-file.csv');
+app.get("/report", async (req, res) => {
+  const result = await fs.promises.readFile("large-file.csv");
   res.send(process(result));
 });
 ```
@@ -28,13 +28,13 @@ app.get('/report', async (req, res) => {
 **CPU-bound work** (parsing, hashing, compression) belongs in a Worker Thread, not the event loop. Offload it:
 
 ```ts
-import { Worker } from 'worker_threads';
+import { Worker } from "worker_threads";
 
 function runInWorker(data: unknown): Promise<unknown> {
   return new Promise((resolve, reject) => {
-    const worker = new Worker('./worker.js', { workerData: data });
-    worker.on('message', resolve);
-    worker.on('error', reject);
+    const worker = new Worker("./worker.js", { workerData: data });
+    worker.on("message", resolve);
+    worker.on("error", reject);
   });
 }
 ```
@@ -46,23 +46,25 @@ In modern Node.js (v15+), an unhandled promise rejection crashes the process. In
 ```ts
 // Bad: rejection is swallowed if sendEmail rejects
 async function notify(user: User) {
-  sendEmail(user.email, 'Welcome!'); // fire and forget — dangerous
+  sendEmail(user.email, "Welcome!"); // fire and forget — dangerous
 }
 
 // Good: either await it or explicitly handle the rejection
 async function notify(user: User) {
-  await sendEmail(user.email, 'Welcome!');
+  await sendEmail(user.email, "Welcome!");
 }
 
 // Or if you genuinely mean fire-and-forget, handle the rejection explicitly
-sendEmail(user.email, 'Welcome!').catch((err) => logger.error('email failed', err));
+sendEmail(user.email, "Welcome!").catch((err) =>
+  logger.error("email failed", err),
+);
 ```
 
 Listen for the process-level safety net — but don't rely on it as a substitute for proper handling:
 
 ```ts
-process.on('unhandledRejection', (reason) => {
-  logger.error('Unhandled rejection', reason);
+process.on("unhandledRejection", (reason) => {
+  logger.error("Unhandled rejection", reason);
   process.exit(1); // exit rather than continue in unknown state
 });
 ```
@@ -86,14 +88,15 @@ const [user, orders, prefs] = await Promise.all([
 ```
 
 **`Promise.all` vs `Promise.allSettled`**:
+
 - `Promise.all` — rejects immediately if any promise rejects. Use when all results are required.
 - `Promise.allSettled` — waits for all, gives you success/failure for each. Use when partial results are acceptable.
 
 ```ts
 const results = await Promise.allSettled([fetchA(), fetchB(), fetchC()]);
 for (const result of results) {
-  if (result.status === 'fulfilled') use(result.value);
-  else logger.warn('fetch failed', result.reason);
+  if (result.status === "fulfilled") use(result.value);
+  else logger.warn("fetch failed", result.reason);
 }
 ```
 
@@ -102,8 +105,8 @@ for (const result of results) {
 For large data, streams beat loading everything into memory. Use async iteration (Node 12+) to consume them cleanly:
 
 ```ts
-import { createReadStream } from 'fs';
-import { createInterface } from 'readline';
+import { createReadStream } from "fs";
+import { createInterface } from "readline";
 
 async function processLines(path: string) {
   const rl = createInterface({ input: createReadStream(path) });
@@ -116,7 +119,7 @@ async function processLines(path: string) {
 Watch for back-pressure: if you write to a writable stream faster than it drains, you'll buffer unbounded data in memory. Respect the return value of `write()` and wait for the `drain` event, or use `pipeline()`:
 
 ```ts
-import { pipeline } from 'stream/promises';
+import { pipeline } from "stream/promises";
 await pipeline(readableSource, transformStream, writableDestination);
 ```
 

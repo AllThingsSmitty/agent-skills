@@ -9,12 +9,12 @@ Python web apps have two distinct runtime models — synchronous (WSGI) and asyn
 
 ## WSGI vs ASGI
 
-| | WSGI | ASGI |
-|---|---|---|
-| Frameworks | Django, Flask, Falcon | FastAPI, Starlette, Django 4+ (async views) |
-| Server | gunicorn | uvicorn, hypercorn, daphne |
-| Concurrency model | One request per worker | Many requests per worker (async) |
-| I/O concurrency | Via multiple workers | Via event loop within each worker |
+|                   | WSGI                   | ASGI                                        |
+| ----------------- | ---------------------- | ------------------------------------------- |
+| Frameworks        | Django, Flask, Falcon  | FastAPI, Starlette, Django 4+ (async views) |
+| Server            | gunicorn               | uvicorn, hypercorn, daphne                  |
+| Concurrency model | One request per worker | Many requests per worker (async)            |
+| I/O concurrency   | Via multiple workers   | Via event loop within each worker           |
 
 **WSGI** handles one request per worker at a time. Scale by adding workers. Blocking I/O is fine — each worker blocks independently.
 

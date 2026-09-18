@@ -79,6 +79,7 @@ string Describe(Shape shape) => shape switch
 ```
 
 **Is-pattern for null checking**:
+
 ```csharp
 if (user is not null && user.Email is string { Length: > 0 } email)
 {
@@ -87,6 +88,7 @@ if (user is not null && user.Email is string { Length: > 0 } email)
 ```
 
 **List patterns** (C# 11):
+
 ```csharp
 int[] arr = { 1, 2, 3 };
 bool result = arr is [1, .., 3]; // true — starts with 1, ends with 3
@@ -124,14 +126,14 @@ public T Max<T>(IEnumerable<T> items) where T : IComparable<T>
 
 Common constraints:
 
-| Constraint | Meaning |
-|---|---|
-| `where T : class` | Reference type |
-| `where T : struct` | Value type |
-| `where T : new()` | Has parameterless constructor |
-| `where T : IInterface` | Implements interface |
-| `where T : BaseClass` | Inherits from class |
-| `where T : notnull` | Non-nullable (NRT-aware) |
+| Constraint             | Meaning                       |
+| ---------------------- | ----------------------------- |
+| `where T : class`      | Reference type                |
+| `where T : struct`     | Value type                    |
+| `where T : new()`      | Has parameterless constructor |
+| `where T : IInterface` | Implements interface          |
+| `where T : BaseClass`  | Inherits from class           |
+| `where T : notnull`    | Non-nullable (NRT-aware)      |
 
 ## Value types vs reference types
 
