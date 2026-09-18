@@ -138,12 +138,12 @@ async def async_client():
 
 ## Useful built-in fixtures
 
-| Fixture | What it provides |
-|---|---|
-| `tmp_path` | A temporary directory unique to the test (cleaned up after) |
-| `monkeypatch` | Safely patch attributes, env vars, dict items |
-| `capfd` | Capture stdout/stderr |
-| `capsys` | Same, for Python-level output |
+| Fixture       | What it provides                                            |
+| ------------- | ----------------------------------------------------------- |
+| `tmp_path`    | A temporary directory unique to the test (cleaned up after) |
+| `monkeypatch` | Safely patch attributes, env vars, dict items               |
+| `capfd`       | Capture stdout/stderr                                       |
+| `capsys`      | Same, for Python-level output                               |
 
 ```python
 def test_reads_env_var(monkeypatch):

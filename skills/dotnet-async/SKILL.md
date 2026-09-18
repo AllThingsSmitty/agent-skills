@@ -114,6 +114,7 @@ public ValueTask<string> GetCachedAsync(string key)
 ```
 
 `ValueTask` rules:
+
 - Can only be awaited once
 - Don't store it in a field and await it multiple times
 - Don't use it unless profiling shows Task allocation is a bottleneck — `Task` is almost always fine
