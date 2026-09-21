@@ -1,4 +1,4 @@
-name: Validate skill structure
+name: CI
 
 on:
   push:

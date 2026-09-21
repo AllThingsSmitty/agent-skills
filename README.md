@@ -2,6 +2,8 @@
 
 A collection of Claude Code skills for software development workflows. Stack-agnostic, principles-based — designed to work across any language or framework.
 
+[![CI](https://github.com/AllThingsSmitty/agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/AllThingsSmitty/agent-skills/actions/workflows/validate.yml)
+
 ## Skills
 
 ### General Dev
@@ -53,12 +55,12 @@ A collection of Claude Code skills for software development workflows. Stack-agn
 
 ### Go
 
-| Skill                                                  | Description                                                                                        |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| [go-types](skills/go-types/SKILL.md)                   | Go type system: interfaces, embedding, generics, type assertions, error wrapping                   |
-| [go-concurrency](skills/go-concurrency/SKILL.md)       | Go concurrency: goroutines, channels, context, sync primitives, goroutine leak detection           |
-| [go-testing](skills/go-testing/SKILL.md)               | Go testing: table-driven tests, subtests, interface mocks, testify, benchmarks                     |
-| [go-ops](skills/go-ops/SKILL.md)                       | Production Go: graceful shutdown, signal handling, health checks, pprof, structured logging        |
+| Skill                                            | Description                                                                                 |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| [go-types](skills/go-types/SKILL.md)             | Go type system: interfaces, embedding, generics, type assertions, error wrapping            |
+| [go-concurrency](skills/go-concurrency/SKILL.md) | Go concurrency: goroutines, channels, context, sync primitives, goroutine leak detection    |
+| [go-testing](skills/go-testing/SKILL.md)         | Go testing: table-driven tests, subtests, interface mocks, testify, benchmarks              |
+| [go-ops](skills/go-ops/SKILL.md)                 | Production Go: graceful shutdown, signal handling, health checks, pprof, structured logging |
 
 ## Installation
 
