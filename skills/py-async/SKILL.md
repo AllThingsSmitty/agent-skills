@@ -1,6 +1,6 @@
 ---
 name: py-async
-description: Python async patterns advisor. Use this skill when working with asyncio, async/await, the Python event loop, aiohttp, FastAPI, or when the user asks about "blocking calls in async", "asyncio.gather", "how do I run async code", "why is my async function slow", "how do I run sync code from async", "asyncio.run vs get_event_loop", or "how do I run tasks concurrently in Python".
+description: Python async patterns advisor. Always use this skill when working with asyncio, async/await, the Python event loop, aiohttp, FastAPI, or Celery. Use when the user asks about blocking calls in async context, asyncio.gather, run_in_executor, bridging sync and async, or says "blocking in my async function", "requests.get in async endpoint", "my FastAPI endpoint is slow", "how do I run tasks concurrently in Python", "asyncio.run vs get_event_loop", or "celery and asyncio". Read this before advising on any Python async or concurrency question.
 ---
 
 # Python Async Patterns

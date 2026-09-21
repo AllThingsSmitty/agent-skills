@@ -1,6 +1,6 @@
 ---
 name: pr-prep
-description: Pre-pull-request review and readiness check. Use this skill before opening a PR, when asked to review a diff before submitting, when the user says "help me prep this PR", "is this ready to merge?", "review my changes before I submit", "check my diff", or any time changes are being packaged up for review. Also use when asked to write or improve a PR description.
+description: Pre-pull-request review and readiness check. Always use this skill before opening a PR, reviewing a diff, writing a PR description, or checking if changes are ready to merge. Use when the user says "help me prep this PR", "is this ready to merge?", "review my changes before I submit", "check my diff", "write a PR description", "what's the blast radius of this change", or any time changes are being packaged for review. Do not skip this skill when any PR-related task is requested.
 ---
 
 # PR Prep

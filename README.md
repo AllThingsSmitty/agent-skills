@@ -83,7 +83,7 @@ Skills install into `.claude/agents/` in the current directory, or `~/.claude/ag
 
 ## Usage
 
-Skills trigger automatically when you use relevant language in your prompts — describe what you're doing and the right skill activates. You can also invoke any skill explicitly by name:
+Invoke any skill explicitly by name — this is the most reliable way to use them:
 
 ```
 /debug
@@ -91,6 +91,8 @@ Skills trigger automatically when you use relevant language in your prompts — 
 /py-async
 /dotnet-ops
 ```
+
+Skills can also trigger automatically when the task context clearly matches the skill's description. Claude Code presents available skills to Claude, which decides whether to consult one based on your prompt. Explicit invocation is always reliable; auto-triggering varies by skill and task.
 
 Run `/skills` in Claude Code to see all available skills and their descriptions.
 

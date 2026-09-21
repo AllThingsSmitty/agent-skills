@@ -1,6 +1,6 @@
 ---
 name: node-async
-description: Node.js async patterns advisor. Use this skill when working with async/await, Promises, the event loop, streams, callbacks, concurrent operations, or when the user asks about "unhandled promise rejection", "blocking the event loop", "Promise.all vs Promise.allSettled", "why is my Node app slow under load", "how do I handle this stream", "concurrent requests", or anything involving async coordination in Node.js.
+description: Node.js async patterns advisor. Always use this skill when working with async/await, Promises, the event loop, streams, backpressure, callbacks, or concurrent operations in Node.js. Use when the user asks about unhandled promise rejections, blocking the event loop, Promise.all vs Promise.allSettled, slow Node.js under load, stream backpressure, or says "my Node app lags under load", "event loop is blocked", "how do I implement backpressure", "unhandled promise rejection", or "concurrent requests". Read this before debugging any Node.js async or concurrency issue.
 ---
 
 # Node.js Async Patterns

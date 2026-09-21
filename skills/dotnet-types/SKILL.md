@@ -1,6 +1,6 @@
 ---
 name: dotnet-types
-description: C# and .NET type system advisor. Use this skill when working with C# nullable reference types, records, pattern matching, generics, value types, or when the user asks "how do I handle nulls in C#", "when should I use a record vs class", "how do I use pattern matching", "what's the difference between struct and class", "how do I constrain a generic", or "should I enable nullable reference types".
+description: C# and .NET type system advisor. Always use this skill when working with C# nullable reference types, records, pattern matching, switch expressions, generics, value types, or sealed classes. Use when the user asks "how do I handle nulls in C#", "record vs class", "how do I use pattern matching", "CS8600 nullable warning", "how do I enable nullable reference types", "sealed class hierarchy", "switch expression in C#", "struct vs class", or "how do I constrain a generic in C#". Read this skill before answering any C# type system question.
 ---
 
 # C# Types

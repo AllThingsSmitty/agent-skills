@@ -1,6 +1,6 @@
 ---
 name: py-ops
-description: Production Python operations advisor. Use this skill when deploying or operating Python web applications, choosing between WSGI and ASGI, configuring gunicorn or uvicorn, handling graceful shutdown, managing memory, setting up health checks, or when the user asks "how many gunicorn workers should I use", "should I use gunicorn or uvicorn", "how do I gracefully restart my Python app", "why does my Python app leak memory", "how do I handle SIGTERM in Python", or "what's the difference between WSGI and ASGI".
+description: Production Python operations advisor. Always use this skill when deploying or operating Python web apps, choosing between WSGI and ASGI, configuring gunicorn or uvicorn, handling graceful shutdown, SIGTERM, config validation, or health checks. Use when the user asks "gunicorn vs uvicorn", "how many workers should I use", "how do I handle SIGTERM in Python", "graceful shutdown in Django or FastAPI", "validate env vars at startup", "my Python app leaks memory", or "WSGI vs ASGI". Read this before advising on any Python production or deployment question.
 ---
 
 # Production Python Operations

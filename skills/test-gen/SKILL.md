@@ -1,6 +1,6 @@
 ---
 name: test-gen
-description: Generate high-quality tests for existing or new code. Use this skill when asked to write tests, add test coverage, generate unit tests, write integration tests, or when the user says "write tests for this", "add coverage", "test this function/class/module/endpoint". Also use when reviewing a PR or feature and noticing test coverage is missing.
+description: Generate high-quality tests for existing or new code. Always use this skill when asked to write tests, add test coverage, or generate any kind of test — unit, integration, or end-to-end. Use when the user says "write tests for this", "add coverage", "test this function/class/module/endpoint", "generate unit tests", or when a PR or feature is missing test coverage. Read this skill before writing a single test case.
 ---
 
 # Test Gen

@@ -1,6 +1,6 @@
 ---
 name: dotnet-testing
-description: .NET testing advisor. Use this skill when writing tests in C#, working with xUnit, NUnit, MSTest, Moq, NSubstitute, FluentAssertions, WebApplicationFactory, or when the user asks "how do I mock an interface in C#", "how do I test an ASP.NET Core controller", "xUnit vs NUnit", "how do I parametrize tests in C#", "how do I write an integration test for my API", or "how do I verify a method was called".
+description: .NET testing advisor. Always use this skill when writing tests in C#, working with xUnit, NUnit, MSTest, Moq, NSubstitute, FluentAssertions, or WebApplicationFactory. Use when the user asks "how do I mock an interface in C#", "mock interface vs concrete class", "how do I test an ASP.NET Core controller", "WebApplicationFactory integration test", "how do I write FluentAssertions", "how do I parametrize tests in C#", or "how do I verify a method was called". Read this skill before writing any .NET test.
 ---
 
 # .NET Testing

@@ -1,6 +1,6 @@
 ---
 name: py-types
-description: Python type system advisor. Use this skill when working with Python type hints, mypy, Protocol, TypedDict, dataclasses, generics, or when the user asks "how do I type this in Python", "mypy is complaining", "should I use TypedDict or dataclass", "how do I type a dict", "what's Optional", "how do I make a generic class", or "how do I avoid Any in Python".
+description: Python type system advisor. Always use this skill when working with Python type hints, mypy, Protocol, TypedDict, dataclasses, or generics. Use when the user asks "how do I type this in Python", "mypy is complaining", "should I use TypedDict or dataclass", "how do I type a dict", "what's Optional", "how do I make a generic class", "Protocol vs ABC vs TypedDict", "how do I annotate a function that returns X or Y", or "how do I avoid Any". Read this skill before answering any Python type annotation question.
 ---
 
 # Python Types

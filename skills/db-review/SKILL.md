@@ -1,6 +1,6 @@
 ---
 name: db-review
-description: Review database schemas, queries, and migrations for correctness, performance, and safety. Use this skill when designing or reviewing a schema, writing or optimizing a query, planning a migration, thinking about indexing strategy, or when the user says "review this schema", "is this query efficient", "is this migration safe", "will this lock the table", "help me design this table", or anything involving database design or data access patterns.
+description: Review database schemas, queries, and migrations for correctness, performance, and safety. Always use this skill when designing a schema, writing or optimizing a query, planning a migration, choosing indexes, or when the user asks about query performance, index strategy, ALTER TABLE safety, migration locking, composite indexes, or says "review this schema", "is this query efficient", "is this migration safe", "will this lock the table", "what index should I add", or "help me design this table". Read this skill before recommending any schema change or index.
 ---
 
 # DB Review

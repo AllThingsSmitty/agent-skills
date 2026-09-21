@@ -1,6 +1,6 @@
 ---
 name: security
-description: Security review for code, APIs, and system designs. Use this skill when reviewing code for vulnerabilities, auditing authentication or authorization logic, evaluating how user input is handled, checking for secrets in code, reviewing dependencies for known issues, threat modeling a new feature or system, or when the user says "is this secure", "review this for security issues", "could this be exploited", "check for vulnerabilities", "threat model this", or "is my auth correct". Also use proactively when implementing authentication, handling untrusted input, or storing sensitive data.
+description: Security review for code, APIs, and system designs. Always use this skill when reviewing code for vulnerabilities, auditing authentication or authorization, evaluating input handling, checking for secrets or hardcoded credentials, reviewing dependencies, or threat modeling. Use when the user says "is this secure", "review this for security issues", "could this be exploited", "check for vulnerabilities", "threat model this", "review for SQL injection", "is this JWT implementation safe", or "is my auth correct". Also use proactively when implementing auth, handling untrusted input, or storing sensitive data.
 ---
 
 # Security

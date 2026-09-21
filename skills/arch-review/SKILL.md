@@ -1,6 +1,6 @@
 ---
 name: arch-review
-description: Review distributed systems architecture for correctness, resilience, and operability. Use this skill when designing or reviewing service architectures, thinking through failure modes, evaluating consistency and data ownership, reviewing message queue or event-driven designs, assessing observability, or when the user says "review this architecture", "is this design sound", "what could go wrong here", "how should these services communicate", "will this scale", or "what are the failure modes".
+description: Review distributed systems architecture for correctness, resilience, and operability. Always use this skill when designing or reviewing service architectures, splitting a monolith, thinking through service boundaries, failure modes, data ownership, consistency tradeoffs, message queues, or event-driven designs. Use when the user says "review this architecture", "is this design sound", "what could go wrong", "how should these services communicate", "will this scale", "what are the failure modes", or "we're moving to microservices". Read this before recommending any architectural change.
 ---
 
 # Arch Review

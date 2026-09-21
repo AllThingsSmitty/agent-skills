@@ -1,6 +1,6 @@
 ---
 name: dotnet-ops
-description: Production .NET operations advisor. Use this skill when deploying or operating ASP.NET Core applications, configuring Kestrel, IHostedService, health checks, graceful shutdown, structured logging, IOptions configuration, or when the user asks "how do I gracefully shut down my .NET app", "how do I set up health checks in ASP.NET Core", "how do I run background work in .NET", "how do I configure my app from environment variables", "Serilog vs ILogger", or "how do I handle SIGTERM in .NET".
+description: Production .NET operations advisor. Always use this skill when deploying or operating ASP.NET Core applications, configuring Kestrel, IHostedService, BackgroundService, health checks, graceful shutdown, SIGTERM, structured logging, or IOptions validation. Use when the user asks "graceful shutdown in ASP.NET Core", "BackgroundService exception handling", "IOptions eager validation", "health checks in .NET", "structured logging with Serilog", "SIGTERM in .NET", or "run background work in .NET". Read this skill before advising on any .NET production or deployment topic.
 ---
 
 # Production .NET Operations

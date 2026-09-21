@@ -1,6 +1,6 @@
 ---
 name: perf
-description: Identify and fix performance bottlenecks in applications and services. Use this skill when diagnosing slow requests, high latency, memory pressure, excessive CPU usage, cache misses, N+1 queries, or when the user says "this is slow", "help me optimize this", "why is this taking so long", "the response time is too high", "we're seeing high CPU/memory", or any request to profile or benchmark code.
+description: Identify and fix performance bottlenecks in applications and services. Always use this skill when investigating slow requests, high latency, memory pressure, CPU usage, cache misses, N+1 queries, or when profiling or benchmarking. Use when the user says "this is slow", "help me optimize this", "why is this taking so long", "response times are too high", "high CPU/memory", "I want to add caching", "how do I detect N+1 queries", or any request to find and fix a bottleneck. Do not recommend optimizations without reading this skill first.
 ---
 
 # Perf
