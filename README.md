@@ -51,6 +51,15 @@ A collection of Claude Code skills for software development workflows. Stack-agn
 | [dotnet-testing](skills/dotnet-testing/SKILL.md) | .NET testing: xUnit, Moq/NSubstitute, FluentAssertions, WebApplicationFactory integration tests         |
 | [dotnet-ops](skills/dotnet-ops/SKILL.md)         | Production .NET: graceful shutdown, health checks, `IOptions` config validation, `BackgroundService`    |
 
+### Go
+
+| Skill                                                  | Description                                                                                        |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| [go-types](skills/go-types/SKILL.md)                   | Go type system: interfaces, embedding, generics, type assertions, error wrapping                   |
+| [go-concurrency](skills/go-concurrency/SKILL.md)       | Go concurrency: goroutines, channels, context, sync primitives, goroutine leak detection           |
+| [go-testing](skills/go-testing/SKILL.md)               | Go testing: table-driven tests, subtests, interface mocks, testify, benchmarks                     |
+| [go-ops](skills/go-ops/SKILL.md)                       | Production Go: graceful shutdown, signal handling, health checks, pprof, structured logging        |
+
 ## Installation
 
 **macOS / Linux:**
