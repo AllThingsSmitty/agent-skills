@@ -1,6 +1,6 @@
 ---
 name: ts-testing
-description: TypeScript testing advisor. Use this skill when writing tests in TypeScript, setting up Jest or Vitest, creating type-safe mocks, testing types themselves, or when the user asks "how do I mock this in TypeScript", "my mock has the wrong type", "how do I test that a type is correct", "jest.fn doesn't match my interface", "how do I set up Jest with TypeScript", or "how do I avoid `as any` in my tests".
+description: TypeScript testing advisor. Always use this skill when writing tests in TypeScript, setting up Jest or Vitest with TypeScript, creating type-safe mocks, or writing type-level tests. Use when the user asks "how do I mock this in TypeScript", "my mock has the wrong type", "how do I test that a type is correct", "jest.fn doesn't match my interface", "how do I set up Jest with TypeScript", "how do I avoid as any in tests", or "how do I write a type-level test". Read this skill before writing any TypeScript tests or mocks.
 ---
 
 # TypeScript Testing

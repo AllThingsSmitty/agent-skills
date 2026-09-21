@@ -1,6 +1,6 @@
 ---
 name: api-design
-description: Review or design REST and GraphQL APIs for correctness, consistency, and evolvability. Use this skill when designing a new API, reviewing an existing one, evaluating endpoint design, checking HTTP semantics, designing error shapes, thinking through versioning strategy, or when the user says "review this API", "is this endpoint design right", "how should I model this resource", "is this breaking", or "how should errors look".
+description: Review or design REST and GraphQL APIs for correctness, consistency, and evolvability. Always use this skill when designing a new API, reviewing an existing one, choosing HTTP verbs, designing URL structure, defining error response shapes, thinking through versioning, or writing OpenAPI/Swagger specs. Use when the user says "review this API", "how should I model this resource", "is this endpoint design right", "should I use PUT or PATCH", "is this breaking", or "how should errors look". Use even when the question seems simple.
 ---
 
 # API Design

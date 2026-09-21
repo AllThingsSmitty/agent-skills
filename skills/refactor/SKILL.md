@@ -1,6 +1,6 @@
 ---
 name: refactor
-description: Guide safe, disciplined code refactoring. Use this skill when asked to refactor, clean up, restructure, reorganize, or improve the design of existing code without changing its behavior. Also use when the user says "this code is messy", "help me clean this up", "extract this into a function", "this is getting hard to read", or when improving code clarity before adding a new feature.
+description: Guide safe, disciplined code refactoring. Always use this skill when asked to refactor, restructure, reorganize, clean up, or improve the design of existing code. Use when the user says "this code is messy", "help me clean this up", "this function does too much", "extract this", "break this apart", "this is hard to read", "the codebase is tangled", or any time code structure needs to change without changing behavior. Read this skill before making any structural code changes.
 ---
 
 # Refactor

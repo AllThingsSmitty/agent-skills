@@ -1,6 +1,6 @@
 ---
 name: debug
-description: Systematic debugging assistant. Use this skill whenever you're asked to debug, diagnose, fix, or investigate a bug, error, unexpected behavior, or failing test. Also use when the user says "it's broken", "this doesn't work", "I'm getting a weird error", "help me figure out why X is happening", or anything where the root cause is unknown and needs to be found before a fix can be written.
+description: Systematic debugging assistant. Always use this skill when investigating a bug, error, crash, unexpected behavior, or failing test — even for seemingly simple issues. Use when the user says "it's broken", "this doesn't work", "I'm getting a weird error", "why is this failing", "help me figure out why X happens", "I'm getting a TypeError/NullPointerException/500 error", or any time the root cause is unknown. Do not attempt to fix code without first reading this skill — frame the problem, form a hypothesis, and narrow scope before touching anything.
 ---
 
 # Debug

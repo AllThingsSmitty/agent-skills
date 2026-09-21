@@ -1,6 +1,6 @@
 ---
 name: incident
-description: Guide incident response for production outages, degradations, and failures. Use this skill when a production system is down or degraded, when the user says "we have an incident", "something's broken in prod", "the site is down", "we're seeing errors spike", "help me triage this", or when walking through a post-mortem. Also use when designing runbooks or on-call procedures.
+description: Guide incident response for production outages, degradations, and failures. Always use this skill when a production system is down or degraded, an alert fired, users are impacted, or when the user says "we have an incident", "production is down", "the site is down", "errors are spiking", "PagerDuty fired", "help me triage this", "what's the blast radius", or when walking through a post-mortem. Also use when designing runbooks or on-call procedures. Use immediately — do not attempt to triage without reading this skill first.
 ---
 
 # Incident

@@ -1,6 +1,6 @@
 ---
 name: ts-types
-description: TypeScript type system advisor. Use this skill when designing types, working with generics, narrowing union types, using utility types, avoiding `any`, writing discriminated unions, or when the user says "how do I type this", "why is TypeScript complaining", "should I use any here", "how do I narrow this", "how do I make this generic", or "what's the right type for X".
+description: TypeScript type system advisor. Always use this skill when designing TypeScript types, working with generics, narrowing union types, building discriminated unions, using utility types, or avoiding any. Use when the user says "how do I type this", "why is TypeScript complaining", "object is possibly null", "how do I narrow this", "how do I make this generic", "what's the right type for X", "how do I model this as a union type", or "how do I constrain a generic". Read this skill before answering any TypeScript type question.
 ---
 
 # TypeScript Types

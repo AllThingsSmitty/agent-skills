@@ -1,6 +1,6 @@
 ---
 name: node-ops
-description: Production Node.js operations advisor. Use this skill when deploying or operating Node.js applications, handling graceful shutdown, clustering, memory leaks, health checks, uncaught exceptions, process management, or when the user asks "how do I gracefully restart my Node app", "why does my Node app run out of memory", "how do I handle uncaught exceptions", "should I use cluster mode", "how do I set up health checks", or "my Node app crashes and restarts constantly".
+description: Production Node.js operations advisor. Always use this skill when deploying or operating Node.js applications, handling graceful shutdown, SIGTERM, clustering, memory leaks, health checks, readiness probes, uncaught exceptions, or process management. Use when the user asks "how do I handle SIGTERM in Node.js", "graceful shutdown in Express", "how do I add health checks or readiness probes", "my Node app crashes and restarts", "uncaught exception handler", "should I use cluster mode", or "Node.js kubernetes". Read this before advising on any Node.js production or deployment topic.
 ---
 
 # Production Node.js Operations

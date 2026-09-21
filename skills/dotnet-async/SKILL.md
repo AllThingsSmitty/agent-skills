@@ -1,6 +1,6 @@
 ---
 name: dotnet-async
-description: C# async/await patterns advisor. Use this skill when working with async/await in C#, Task, ValueTask, CancellationToken, ConfigureAwait, deadlocks, or when the user asks "why is my async code deadlocking", "should I use ConfigureAwait(false)", "async void vs async Task", "when to use ValueTask", "how do I cancel an async operation", or "can I call async from sync code".
+description: C# async/await patterns advisor. Always use this skill when working with async/await in C#, Task, ValueTask, CancellationToken, ConfigureAwait, or deadlocks. Use when the user asks "why is my async code deadlocking", ".Result causing deadlock", "ConfigureAwait(false)", "async void vs async Task", "when to use ValueTask", "how do I cancel an async operation", "thread CancellationToken through async chain", or "can I call async from sync in C#". Read this skill before advising on any C# async or Task question.
 ---
 
 # C# Async Patterns

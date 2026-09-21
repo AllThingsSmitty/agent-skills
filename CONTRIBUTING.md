@@ -69,19 +69,29 @@ This is the most important field. Claude Code uses it to decide when to activate
 
 A good description:
 - States the domain clearly and early
-- Lists specific phrasings a user might say that should trigger it
-- Includes common synonyms and adjacent terms
+- Uses assertive language — "Always use this skill when..." and "Read this skill before..." rather than "Use this skill when..."
+- Lists specific phrasings a user might say that should trigger it, including common synonyms and adjacent terms
+- Closes with a directive ("Read this skill before answering any X question") to reinforce the trigger
 - Is specific enough to avoid false positives on unrelated prompts
+
+Claude tends to answer questions it's confident about directly, without consulting a skill. Assertive trigger language counteracts this tendency. Skills that cover highly specialized or procedural domains (specific framework internals, on-call workflows, migration safety) auto-trigger more reliably than broad general skills. For general-purpose skills, explicit invocation (`/skill-name`) is always reliable.
 
 ```markdown
 # Too vague — fires on almost anything
 description: Help with code quality and best practices.
 
-# Good — specific domain, concrete trigger phrases
+# Too passive — Claude answers directly and skips the skill
 description: TypeScript type system advisor. Use this skill when designing types,
   working with generics, narrowing union types, or when the user says "how do I
-  type this", "why is TypeScript complaining", "should I use any here", or
-  "how do I narrow this".
+  type this", "why is TypeScript complaining", "should I use any here".
+
+# Good — assertive, specific, closes with a directive
+description: TypeScript type system advisor. Always use this skill when designing
+  TypeScript types, working with generics, narrowing union types, building
+  discriminated unions, or avoiding any. Use when the user says "how do I type
+  this", "why is TypeScript complaining", "object is possibly null", "how do I
+  narrow this", or "how do I constrain a generic". Read this skill before
+  answering any TypeScript type question.
 ```
 
 ### Skill content

@@ -1,6 +1,6 @@
 ---
 name: py-testing
-description: Python testing advisor. Use this skill when writing Python tests, working with pytest, fixtures, mocking, patching, conftest, parametrize, or when the user asks "how do I mock this in Python", "how do I patch a function", "what's the right way to use fixtures", "how do I test async Python code", "how do I parametrize tests", or "why isn't my patch working".
+description: Python testing advisor. Always use this skill when writing Python tests, working with pytest, fixtures, conftest, mocking, patching, or parametrize. Use when the user asks "how do I mock this in Python", "how do I patch a function", "where should I patch", "why isn't my patch working", "how do I parametrize tests", "how do I test async Python code", "how do I use fixtures", or "pytest conftest". Read this skill before writing any Python test or debugging a failing mock or patch.
 ---
 
 # Python Testing
