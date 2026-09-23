@@ -15,8 +15,8 @@ This project is released with a [Contributor Code of Conduct](CODE-OF-CONDUCT.md
 No build step, no package manager, no setup. Skills are markdown files. Clone the repo and start editing.
 
 ```bash
-git clone https://github.com/your-username/agent-skills.git
-cd agent-skills
+git clone https://github.com/your-username/proven-skills.git
+cd proven-skills
 ```
 
 To test a skill locally, install it into a project using the install script and try it in Claude Code:
@@ -105,16 +105,33 @@ Skills should be opinionated, not encyclopedic. The goal is to ground Claude in 
 
 ## Eval Structure
 
-Each eval lives at `skills/{name}/evals/{eval-name}/` and contains:
+Each eval lives at `evals/{skill-name}/{eval-name}/`, outside the skill's own folder, and contains:
 
 ```
 evals/
-  eval-name/
-    prompt.md       ← the user prompt to test
-    graders/
-      grader-1.md   ← one grading criterion
-      grader-2.md   ← another grading criterion
+  skill-name/
+    eval-name/
+      prompt.md       ← the user prompt to test
+      graders/
+        grader-1.md   ← one grading criterion
+        grader-2.md   ← another grading criterion
 ```
+
+Keeping evals outside `skills/` is required, because `claude plugin eval` won't read eval cases from inside a loaded skill folder. It also keeps them out of users' installs.
+
+To check structure (no API key needed):
+
+```bash
+python scripts/validate.py
+```
+
+To run a skill's evals for real (this costs money; requires Claude Code 2.1.269 or later):
+
+```bash
+claude plugin eval . --tag skill-name --runs 1 --ablation none --max-cost-usd 2 --no-publish
+```
+
+Results are written to `evals/results/`, which is gitignored. `--no-publish` keeps the HTML report local instead of publishing it to claude.ai.
 
 ### prompt.md
 

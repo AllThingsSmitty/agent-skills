@@ -1,8 +1,8 @@
-# Agent Skills
+# Proven Skills
 
 A collection of Claude Code skills for software development workflows. Stack-agnostic, principles-based — designed to work across any language or framework.
 
-[![CI](https://github.com/AllThingsSmitty/agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/AllThingsSmitty/agent-skills/actions/workflows/validate.yml)
+[![CI](https://github.com/AllThingsSmitty/proven-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/AllThingsSmitty/proven-skills/actions/workflows/validate.yml)
 
 ## Skills
 

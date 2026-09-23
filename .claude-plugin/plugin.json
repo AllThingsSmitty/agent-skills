@@ -1,0 +1,12 @@
+{
+  "name": "proven-skills",
+  "description": "Claude Code skills for software development workflows. Stack-agnostic, principles-based.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Matt Smith"
+  },
+  "homepage": "https://github.com/AllThingsSmitty/proven-skills",
+  "repository": "https://github.com/AllThingsSmitty/proven-skills",
+  "license": "MIT",
+  "skills": "./skills/"
+}

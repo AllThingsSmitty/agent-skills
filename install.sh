@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Install agent-skills into a Claude Code skills directory.
+# Install proven-skills into a Claude Code skills directory.
 # Usage:
 #   ./install.sh                    # interactive: lists skills, prompts for selection
 #   ./install.sh debug test-gen     # install specific skills
