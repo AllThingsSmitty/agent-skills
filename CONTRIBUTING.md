@@ -177,6 +177,8 @@ Each eval should have two graders — one for the primary behavior, one for a su
 - PR title should be clear: "Add `py-types` skill" or "Improve `debug` eval coverage for async errors".
 - Check spelling and grammar — skill content is read by other developers.
 
+Before merging any skill change, a maintainer will run the **Eval (PR)** workflow from the Actions tab. This runs model-graded evals against the changed skills and fails if any score below 1.0. It requires `ANTHROPIC_API_KEY` to be set as a repo secret. You don't need to run it yourself, but your PR must include passing evals for the workflow to succeed.
+
 If a maintainer asks for changes, update your branch and push new commits to the same PR.
 
 Thank you for contributing!
