@@ -1,0 +1,104 @@
+name: Eval (PR)
+
+# Runs model-graded evals for every skill whose files changed in this PR.
+# Fails the run if any skill scores below 1.0.
+#
+# Requires ANTHROPIC_API_KEY to be set as a repo secret.
+#
+# Trigger: manual (workflow_dispatch) — run this from the Actions tab before
+# merging a skill change.  To make it automatic on every PR once you have the
+# API key, replace the `on:` block below with:
+#
+#   on:
+#     pull_request:
+#       branches: [main]
+#       paths:
+#         - "skills/**"
+#         - "evals/**"
+#
+# Note: GitHub does not share repo secrets with fork PRs, so automatic runs
+# would only fire on branches in this repo (not external contributors' forks).
+
+on:
+  workflow_dispatch:
+    inputs:
+      skills:
+        description: >
+          Comma-separated skill names to evaluate, e.g. api-design,debug.
+          Leave blank to evaluate all skills that changed since main.
+        required: false
+        default: ""
+
+jobs:
+  # ── 1. Detect which skills changed ─────────────────────────────────────────
+  detect:
+    name: Detect changed skills
+    runs-on: ubuntu-latest
+    outputs:
+      skills: ${{ steps.diff.outputs.skills }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find changed skills
+        id: diff
+        run: |
+          input="${{ github.event.inputs.skills }}"
+          if [ -n "$input" ]; then
+            # Manual input: split on commas, trim whitespace, emit JSON array.
+            skills=$(echo "$input" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' \
+              | sort -u | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          else
+            # No input: extract the skill name (2nd path segment) from any
+            # changed file under skills/ or evals/ since main.
+            skills=$(
+              git diff --name-only origin/main...HEAD \
+                | grep -E '^(skills|evals)/[^/]+/' \
+                | sed -E 's|^[^/]+/([^/]+)/.*|\1|' \
+                | sort -u \
+                | jq -R -s -c 'split("\n") | map(select(length > 0))'
+            )
+          fi
+          echo "skills=$skills" >> "$GITHUB_OUTPUT"
+          echo "Changed skills: $skills"
+
+  # ── 2. Run evals — one job per changed skill ────────────────────────────────
+  eval:
+    name: Eval / ${{ matrix.skill }}
+    needs: detect
+    if: needs.detect.outputs.skills != '[]' && needs.detect.outputs.skills != ''
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false          # keep running other skills if one fails
+      matrix:
+        skill: ${{ fromJson(needs.detect.outputs.skills) }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run evals for ${{ matrix.skill }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude plugin eval . \
+            --tag "${{ matrix.skill }}" \
+            --ablation none \
+            --threshold 1.0 \
+            --max-cost-usd 5 \
+            --no-publish \
+            --trust-plugin \
+            --json "evals/results/${{ matrix.skill }}.json"
+
+      # Upload the JSON result as an artifact so grader details are inspectable.
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-${{ matrix.skill }}
+          path: evals/results/${{ matrix.skill }}.json
+          if-no-files-found: warn
