@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Install agent-skills into a Claude Code agents directory.
+# Install agent-skills into a Claude Code skills directory.
 # Usage:
 #   ./install.sh                    # interactive: lists skills, prompts for selection
 #   ./install.sh debug test-gen     # install specific skills
 #   ./install.sh all                # install every skill
-#   ./install.sh --global debug     # install to ~/.claude/agents/ instead of ./.claude/agents/
+#   ./install.sh --global debug     # install to ~/.claude/skills/ instead of ./.claude/skills/
 
 SKILLS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/skills"
 GLOBAL=false
@@ -37,9 +37,9 @@ fi
 
 # Determine target directory
 if $GLOBAL; then
-  TARGET_DIR="$HOME/.claude/agents"
+  TARGET_DIR="$HOME/.claude/skills"
 else
-  TARGET_DIR="$(pwd)/.claude/agents"
+  TARGET_DIR="$(pwd)/.claude/skills"
 fi
 
 # Resolve which skills to install
@@ -90,5 +90,5 @@ done
 echo ""
 echo "Done. Installed ${#SELECTED[@]} skill(s) to $TARGET_DIR"
 if ! $GLOBAL; then
-  echo "Tip: use --global to install to ~/.claude/agents/ for use across all projects."
+  echo "Tip: use --global to install to ~/.claude/skills/ for use across all projects."
 fi

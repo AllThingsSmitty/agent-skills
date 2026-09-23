@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""Validate skill structure across all skills in the skills/ directory."""
+"""Validate skills in skills/ and their eval suites in evals/."""
 
 import os
 import re
 import sys
 
-SKILLS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "skills")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SKILLS_DIR = os.path.join(ROOT_DIR, "skills")
+EVALS_DIR = os.path.join(ROOT_DIR, "evals")
+
+# Output directory written by `claude plugin eval`; not a skill's eval suite.
+EVAL_RESULTS_DIR = "results"
 
 SKILL_FRONTMATTER_REQUIRED = {"name", "description"}
 PROMPT_FRONTMATTER_REQUIRED = {"name", "tags", "runs", "max_turns"}
@@ -76,10 +81,20 @@ def validate():
         if os.path.isdir(os.path.join(SKILLS_DIR, d))
     )
 
+    if os.path.isdir(EVALS_DIR):
+        for d in sorted(os.listdir(EVALS_DIR)):
+            if d == EVAL_RESULTS_DIR or not os.path.isdir(os.path.join(EVALS_DIR, d)):
+                continue
+            if d not in skill_names:
+                errors.append(f"evals/{d}: no matching skill in skills/")
+
     for skill in skill_names:
         skill_dir = os.path.join(SKILLS_DIR, skill)
         skill_md = os.path.join(skill_dir, "SKILL.md")
-        evals_dir = os.path.join(skill_dir, "evals")
+        evals_dir = os.path.join(EVALS_DIR, skill)
+
+        if os.path.isdir(os.path.join(skill_dir, "evals")):
+            errors.append(f"skills/{skill}/evals: evals must live in evals/{skill}/, not inside the skill")
 
         if not os.path.isfile(skill_md):
             errors.append(f"{skill}: missing SKILL.md")
@@ -93,7 +108,7 @@ def validate():
                     errors.append(f"{skill}/SKILL.md: missing frontmatter fields: {', '.join(sorted(missing))}")
 
         if not os.path.isdir(evals_dir):
-            errors.append(f"{skill}: missing evals/ directory")
+            errors.append(f"{skill}: missing evals/{skill}/ directory")
             continue
 
         eval_names = sorted(
@@ -110,20 +125,20 @@ def validate():
             graders_dir = os.path.join(eval_dir, "graders")
 
             if not os.path.isfile(prompt_md):
-                errors.append(f"{skill}/evals/{eval_name}: missing prompt.md")
+                errors.append(f"evals/{skill}/{eval_name}: missing prompt.md")
             else:
                 keys = parse_frontmatter(prompt_md)
                 if keys is None:
-                    errors.append(f"{skill}/evals/{eval_name}/prompt.md: could not read file")
+                    errors.append(f"evals/{skill}/{eval_name}/prompt.md: could not read file")
                 else:
                     missing = PROMPT_FRONTMATTER_REQUIRED - keys
                     if missing:
                         errors.append(
-                            f"{skill}/evals/{eval_name}/prompt.md: missing frontmatter fields: {', '.join(sorted(missing))}"
+                            f"evals/{skill}/{eval_name}/prompt.md: missing frontmatter fields: {', '.join(sorted(missing))}"
                         )
 
             if not os.path.isdir(graders_dir):
-                errors.append(f"{skill}/evals/{eval_name}: missing graders/ directory")
+                errors.append(f"evals/{skill}/{eval_name}: missing graders/ directory")
                 continue
 
             grader_files = sorted(
@@ -133,28 +148,28 @@ def validate():
 
             if len(grader_files) < MIN_GRADERS:
                 errors.append(
-                    f"{skill}/evals/{eval_name}: has {len(grader_files)} grader(s), need at least {MIN_GRADERS}"
+                    f"evals/{skill}/{eval_name}: has {len(grader_files)} grader(s), need at least {MIN_GRADERS}"
                 )
 
             for grader_file in grader_files:
                 grader_path = os.path.join(graders_dir, grader_file)
                 keys = parse_frontmatter(grader_path)
                 if keys is None:
-                    errors.append(f"{skill}/evals/{eval_name}/graders/{grader_file}: could not read file")
+                    errors.append(f"evals/{skill}/{eval_name}/graders/{grader_file}: could not read file")
                 elif "type" not in keys:
-                    errors.append(f"{skill}/evals/{eval_name}/graders/{grader_file}: missing frontmatter field: type")
+                    errors.append(f"evals/{skill}/{eval_name}/graders/{grader_file}: missing frontmatter field: type")
                 else:
                     grader_type = _read_frontmatter_value(grader_path, "type")
                     required = GRADER_TYPE_REQUIRED.get(grader_type)
                     if required is None:
                         errors.append(
-                            f"{skill}/evals/{eval_name}/graders/{grader_file}: unknown grader type '{grader_type}'"
+                            f"evals/{skill}/{eval_name}/graders/{grader_file}: unknown grader type '{grader_type}'"
                         )
                     else:
                         missing = required - keys
                         if missing:
                             errors.append(
-                                f"{skill}/evals/{eval_name}/graders/{grader_file}: missing frontmatter fields: {', '.join(sorted(missing))}"
+                                f"evals/{skill}/{eval_name}/graders/{grader_file}: missing frontmatter fields: {', '.join(sorted(missing))}"
                             )
 
     if errors:

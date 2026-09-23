@@ -90,7 +90,7 @@ A collection of Claude Code skills for software development workflows. Stack-agn
 .\install.ps1 -Global all
 ```
 
-Skills install into `.claude/agents/` in the current directory, or `~/.claude/agents/` with the global flag. Claude Code loads them automatically — no further configuration needed.
+Skills install into `.claude/skills/` in the current directory, or `~/.claude/skills/` with the global flag. Claude Code loads them automatically — no further configuration needed.
 
 ## Usage
 
