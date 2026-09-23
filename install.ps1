@@ -1,4 +1,4 @@
-# Install agent-skills into a Claude Code skills directory.
+# Install proven-skills into a Claude Code skills directory.
 # Usage:
 #   .\install.ps1                     # interactive: lists skills, prompts for selection
 #   .\install.ps1 debug, test-gen     # install specific skills
