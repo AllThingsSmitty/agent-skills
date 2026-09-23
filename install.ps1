@@ -1,9 +1,9 @@
-# Install agent-skills into a Claude Code agents directory.
+# Install agent-skills into a Claude Code skills directory.
 # Usage:
 #   .\install.ps1                     # interactive: lists skills, prompts for selection
 #   .\install.ps1 debug, test-gen     # install specific skills
 #   .\install.ps1 all                 # install every skill
-#   .\install.ps1 -Global debug       # install to ~/.claude/agents/ instead of .\.claude\agents\
+#   .\install.ps1 -Global debug       # install to ~/.claude/skills/ instead of .\.claude\skills\
 
 param(
     [switch]$Global,
@@ -26,9 +26,9 @@ if ($Available.Count -eq 0) {
 
 # Determine target directory
 if ($Global) {
-    $TargetDir = Join-Path (Join-Path $HOME '.claude') 'agents'
+    $TargetDir = Join-Path (Join-Path $HOME '.claude') 'skills'
 } else {
-    $TargetDir = Join-Path (Join-Path (Get-Location) '.claude') 'agents'
+    $TargetDir = Join-Path (Join-Path (Get-Location) '.claude') 'skills'
 }
 
 # Resolve which skills to install
@@ -79,5 +79,5 @@ foreach ($skill in $Selected) {
 Write-Host ""
 Write-Host "Done. Installed $($Selected.Count) skill(s) to $TargetDir"
 if (-not $Global) {
-    Write-Host "Tip: use -Global to install to ~/.claude/agents/ for use across all projects."
+    Write-Host "Tip: use -Global to install to ~/.claude/skills/ for use across all projects."
 }
